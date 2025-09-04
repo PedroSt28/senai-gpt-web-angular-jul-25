@@ -1,20 +1,15 @@
 <header> </header>
         <main class="page-container">
 
-            <div class="robo-image">
-                
-            </div>
+            <div class="robo-image"></div>
             
-            <div class="login-container">  
-                
+            <div class="login-container" [formGroup] = "LoginForm">  
 
                 <img  src="imgs/Chat (1).png" alt="Logo senai-GPT">
                 <h1 class="titulo">Login</h1>
-              
-                <input  class="inp"  type="email" placeholder="Insira o email">
-                <input  class="inp"  type="password" placeholder="Insira a senha">
-                <button class="button">Entrar</button>
-
+                <input  class="inp"  type="email" placeholder="Insira o email" formControlName="email">
+                <input  class="inp"  type="password" placeholder="Insira a senha" formControlName="password">
+                <button class="button" (click)="onLoginClick()">Entrar</button>
 
             </div>
 
