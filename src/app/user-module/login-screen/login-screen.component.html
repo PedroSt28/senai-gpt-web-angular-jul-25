@@ -1,17 +1,31 @@
 <header> </header>
-        <main class="page-container">
+<main class="page-container">
 
-            <div class="robo-image"></div>
-            
-            <div class="login-container" [formGroup] = "LoginForm">  
+    <div class="robo-image"></div>
 
-                <img  src="imgs/Chat (1).png" alt="Logo senai-GPT">
-                <h1 class="titulo">Login</h1>
-                <input  class="inp"  type="email" placeholder="Insira o email" formControlName="email">
-                <input  class="inp"  type="password" placeholder="Insira a senha" formControlName="password">
-                <button class="button" (click)="onLoginClick()">Entrar</button>
+    <div class="login-container" [formGroup]="LoginForm">
 
-            </div>
+        <img src="imgs/Chat (1).png" alt="Logo senai-GPT">
+        <h1 class="titulo">Login</h1>
 
-        </main>
-    <footer class="base"></footer>
+        <input class="inp" type="email" placeholder="Insira o email" formControlName="email">
+        <span class="error-massege">{{emailErrorMensage}}</span>
+
+
+         <input class="inp" type="password" placeholder="Insira a senha" formControlName="password" >
+         <!-- (keydown.enter)="onLoginClick()" para o enter se tornar usavel -->
+         <span class="error-password">{{passwordErrorMessege}}</span>
+
+        <button class="button" (click)="onLoginClick()">Entrar</button>
+        <span class="all-correct">{{congratulations}}</span>
+        <span class="incrrect">{{incorrect}}</span>
+        
+        <div class="a" *ngIf="mostrarDiv == true">
+
+            <p>aaaaaaaaaaa</p>
+         
+        </div>
+    </div>
+
+</main>
+<footer class="base"></footer>
