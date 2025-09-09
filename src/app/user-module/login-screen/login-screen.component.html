@@ -8,23 +8,18 @@
         <img src="imgs/Chat (1).png" alt="Logo senai-GPT">
         <h1 class="titulo">Login</h1>
 
-        <input class="inp" type="email" placeholder="Insira o email" formControlName="email">
+        <input class="inp" type="email" placeholder="Insira o email" formControlName="email" (keydown.enter)="onLoginClick()">
         <span class="error-massege">{{emailErrorMensage}}</span>
 
 
-         <input class="inp" type="password" placeholder="Insira a senha" formControlName="password" >
-         <!-- (keydown.enter)="onLoginClick()" para o enter se tornar usavel -->
+         <input class="inp" type="password" placeholder="Insira a senha" formControlName="password" (keydown.enter)="onLoginClick()">
+         
          <span class="error-password">{{passwordErrorMessege}}</span>
 
         <button class="button" (click)="onLoginClick()">Entrar</button>
         <span class="all-correct">{{congratulations}}</span>
         <span class="incrrect">{{incorrect}}</span>
         
-        <div class="a" *ngIf="mostrarDiv == true">
-
-            <p>aaaaaaaaaaa</p>
-         
-        </div>
     </div>
 
 </main>

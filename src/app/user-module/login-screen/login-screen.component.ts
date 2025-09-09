@@ -15,7 +15,7 @@ export class LoginScreenComponent {
   passwordErrorMessege: String;
   congratulations: String;
   incorrect: String;
-  mostrarDiv : boolean;
+
 
   LoginForm: FormGroup;
 
@@ -30,7 +30,7 @@ export class LoginScreenComponent {
     this.passwordErrorMessege = "";
     this.congratulations = "";
     this.incorrect = "";
-    this.mostrarDiv = true;
+
 
   }
 
@@ -69,20 +69,36 @@ export class LoginScreenComponent {
         password: this.LoginForm.value.password
 
       })
+
     });
 
     console.log("STATUS CODE", response.status)
-
 
 
     if (response.status >= 200 && response.status <= 299) {
 
       this.congratulations = "Login realizado com sucesso ";
 
+
+
+      
+      let json = await response.json();
+      console.log("JSON", json);
+
+      let meuToken = json.accessToken;
+      let userId = json.user.id;
+
+      localStorage.setItem("meu token", meuToken);
+      localStorage.setItem("meu ID", userId);
+
+      window.location.href = "chat"
+
     } else {
       this.incorrect = "Credenciais incorretas";
     }
+
   }
+
 };
 
 
