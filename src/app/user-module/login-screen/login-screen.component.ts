@@ -19,7 +19,7 @@ export class LoginScreenComponent {
 
   LoginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder ,) {
     this.LoginForm = this.fb.group({
       email: ["", [Validators.required]],//*inica o formulario, cria o campo obrigatorio de preenchimento ou seja nao pode entrar sem digitar *
       password: ["", [Validators.required]],
@@ -78,25 +78,23 @@ export class LoginScreenComponent {
     if (response.status >= 200 && response.status <= 299) {
 
       this.congratulations = "Login realizado com sucesso ";
-
-
-
+      
       
       let json = await response.json();
       console.log("JSON", json);
 
       let meuToken = json.accessToken;
       let userId = json.user.id;
-
-      localStorage.setItem("meu token", meuToken);
-      localStorage.setItem("meu ID", userId);
+      localStorage.setItem("meuToken", meuToken);
+      localStorage.setItem("meuId", userId);
 
       window.location.href = "chat"
 
     } else {
       this.incorrect = "Credenciais incorretas";
     }
-
+   
+     
   }
 
 };
