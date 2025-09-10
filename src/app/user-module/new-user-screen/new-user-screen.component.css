@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.titulo {
+
+     font-size: 76px;
+     font-weight: 400;
+     margin-bottom: 16px;
+
+}
+
+.page-container {
+
+     display: flex;
+
+}
+
+.robo-image {
+
+     height: 100vh;
+     width: 50vw;
+     background-image: url("/imgs/new-user.jpg");
+    background-size: cover;
+     background-position: 0px, 120px;
+}
+
+.login-container {
+
+     height: 100vh;
+     width: 50vw;
+
+     /*kit sobrevivenvia da centralizaçao*/
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    
+}
+
+.login-container a{
+    margin-top: 10px;
+color: black;
+}
+
+/*.classe{ ponto antes para classe
+
+}
+
+#id{           # andes para 
+
+}
+
+img{      so digitar o prefixo para a tag
+*/
+
+
+.login-container-img {
+
+     height: 60px;
+
+}
+
+.button {
+
+     border-radius: 10px;
+     background-color: rgb(0, 0, 0);
+     color: aliceblue;
+     width: 377px;
+     padding: 18px;
+
+}
+
+.inp {
+
+     width: 377px;
+     margin-bottom: 16px;
+     border-radius: 10px;
+     padding: 18px;
+     background-color: rgb(255, 255, 255);
+     border: 1px solid black;
+
+}
+
+.error-massege {
+
+     color: red;
+     font-size: 12px;
+     transform: translateY(-12px) translateX(-90px);
+}
+
+.error-password {
+
+     color: red;
+     font-size: 12px;
+     transform: translateY(-12px) translateX(-90px);
+}
+
+.all-correct {
+
+     color: green;
+     font-size: 12px;
+     transform: translateY(12px) translateX(-90px);
+
+}
+
+.incrrect {
+
+     color: rgb(255, 0, 0);
+     font-size: 12px;
+     transform: translateY(12px) translateX(-120px);
+
+}
+
+.a{
+
+display: flex;
+
+
+}
