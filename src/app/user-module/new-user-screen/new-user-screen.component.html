@@ -1,25 +1,33 @@
-
 <main class="page-container">
 
     <div class="robo-image"></div>
 
-    <div class="login-container">
+    <div class="login-container" [formGroup]="NewForm">
 
         <img src="imgs/Chat (1).png" alt="Logo senai-GPT">
         <h1 class="titulo">Cadastro</h1>
 
-        <input class="inp" type="text" placeholder="Insira o Nome do usuario" >
 
-        <input class="inp" type="email" placeholder="Insira o email" >
 
-        <input class="inp" type="password" placeholder="Insira a senha" >
+        <input class="inp" type="text" placeholder="Insira o Nome do usuario" formControlName ="name">
+        <span class="nameError">{{name}}</span>
 
-        <input class="inp" type="password" placeholder="Confirme  a senha" >
+        <input class="inp" type="email" placeholder="Insira o email" formControlName="email">
+        <span class="error-massege">{{emailErrorMensage}}</span>
 
-        <button class="button">Entrar</button>
+
+
+        <input class="inp" type="password" placeholder="Insira a senha" formControlName="password">
+        <span class="error-password">{{passwordErrorMessege}}</span>
+
+        
+
+        <input class="inp" type="password" placeholder="Confirme  a senha" formControlName = "confirmPass">
+        <span class="error-password">{{confirmPass}}</span>
+
+        <button class="button" (click) = "onEnterClick()" >Entrar</button>
         <a href="">Clique aqui para fazer o login</a>
 
     </div>
 
 </main>
-<footer class="base"></footer>

@@ -113,6 +113,14 @@ img{      so digitar o prefixo para a tag
 .a{
 
 display: flex;
+color: aqua;
 
+}
+
+.nameError{
+
+color: rgb(255, 0, 0);
+     font-size: 12px;
+     transform: translateY(-12px) translateX(-90px);
 
 }

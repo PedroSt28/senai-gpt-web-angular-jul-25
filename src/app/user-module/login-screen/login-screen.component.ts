@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login-screen.component.css'
 })
 
+
 export class LoginScreenComponent {
 
   emailErrorMensage: String;
@@ -30,7 +31,6 @@ export class LoginScreenComponent {
     this.passwordErrorMessege = "";
     this.congratulations = "";
     this.incorrect = "";
-
 
   }
 
