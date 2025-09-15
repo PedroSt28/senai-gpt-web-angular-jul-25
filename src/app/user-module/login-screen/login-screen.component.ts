@@ -56,7 +56,6 @@ export class LoginScreenComponent {
       return
     }
 
-
     let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
 
       method: "POST",//enviar

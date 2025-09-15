@@ -9,8 +9,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './new-user-screen.component.css'
 })
 
-
-
 export class NewScreenComponent {
 
 
@@ -104,21 +102,14 @@ export class NewScreenComponent {
 
     if (response.status >= 200 && response.status <= 299) {
 
-       let json = await response.json();
-       console.log("JSON", json);
+       window.location.href = "login";
+       this.congratulations = "Tudo certo, prossiga"
+       
 
-       let meuToken = json.accessToken;
-       let userId = json.user.Id;
-       localStorage.setItem("meuToken", meuToken);
-       localStorage.setItem("meuId", userId);
-
-       window.location.href = "Login"
-
+    }else{
+      this.incorrect = "Credenciais incorretas";
     }
 
   }
 
 };
-
-
- 
