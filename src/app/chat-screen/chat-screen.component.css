@@ -54,10 +54,11 @@ align-items: center;
 background-color: rgb(255, 255, 255);
 height: 100%;
 align-items: center;
+border-color: transparent;
 
 }
 
-.button{
+.but{
 
 display: flex;
 width: 80%;
@@ -75,8 +76,10 @@ display: flex;
 width: 80%;
 height:40px;
 align-items: center;
-margin-top: 10px;
+margin-top: 15px;
 align-items: center;
+border-color:transparent;
+background-color: transparent;
 
 }
 
@@ -88,7 +91,7 @@ height: 45px;
 width: 242px;
 display: flex;
 border-radius: 0%;
-border: none;
+border-color: transparent;
 text-align: start;
 
 

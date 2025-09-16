@@ -104,9 +104,10 @@ img{      so digitar o prefixo para a tag
 
 }
 
-.a{
+.login-container a{
 
 display: flex;
-
+color: black;
+margin-top: 10px;
 
 }

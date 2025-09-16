@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 export class NewScreenComponent {
 
-
   emailErrorMensage: String;
   passwordErrorMessege: String;
   congratulations: String;
@@ -26,9 +25,8 @@ export class NewScreenComponent {
     this.NewForm = this.fb.group({
       name: ["", [Validators.required]],
       email: ["", [Validators.required]],//*inica o formulario, cria o campo obrigatorio de preenchimento ou seja nao pode entrar sem digitar *
-      password: ["", [Validators.required]],
+      password: ["", [Validators.required, Validators.minLength(10)]],
       confirmPass: ["", [Validators.required]]
-
 
     });
 
@@ -54,46 +52,49 @@ export class NewScreenComponent {
     console.log("Email", this.NewForm.value.email);
     console.log("password", this.NewForm.value.password);
     console.log("confirmPass", this.NewForm.value.confirmPass);
-      
-      if (this.NewForm.value.name == "") {
-        
-        this.name = "o campo de nome é obrigatorio";
-        return
-        
-      }
-      
-      if (this.NewForm.value.email == "") {
-        
-        this.emailErrorMensage = "O campo de email é obrigatorio";
-        return
-      }
-      
-      if (this.NewForm.value.password == "") {
-        this.passwordErrorMessege = "Campo de senha obrigatorio";
-        return
-      }
 
-      if (this.NewForm.value.confirmPass == ""   || this.NewForm.value.confirmPass != this.NewForm.value.password) {
-      
-        this.confirmPass = "senha incorreta ou nao aplicada"
-        return
-        
-      }
-      
+    if (this.NewForm.value.name == "") {
+
+      this.name = "o campo de nome é obrigatorio";
+      return
+
+    }
+
+    if (this.NewForm.value.email == "") {
+
+      this.emailErrorMensage = "O campo de email é obrigatorio";
+      return
+    }
+
+    if (this.NewForm.value.password == "") {
+      this.passwordErrorMessege = "Campo de senha obrigatorio";
+      return
+    }
+
+    if (this.NewForm.value.confirmPass == "" || this.NewForm.value.confirmPass != this.NewForm.value.password) {
+
+      this.confirmPass = "senha incorreta ou nao aplicada"
+      return
+
+    }
+
     let response = await fetch("https://senai-gpt-api.azurewebsites.net/users", {
 
       method: "POST",//enviar
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
 
-        nome: this.NewForm.value.nome,
-        email: this.NewForm.value.email,
-        password: this.NewForm.value.password,
-        confirmPass: this.NewForm.value.confirmPass,
+        {
 
-      })
+          nome: this.NewForm.value.nome,
+          email: this.NewForm.value.email,
+          password: this.NewForm.value.password,
+
+        }
+
+      )
 
     });
 
@@ -102,12 +103,10 @@ export class NewScreenComponent {
 
     if (response.status >= 200 && response.status <= 299) {
 
-       window.location.href = "login";
-       this.congratulations = "Tudo certo, prossiga"
-       
+      window.location.href = "login";
 
-    }else{
-      this.incorrect = "Credenciais incorretas";
+    } else {
+      this.incorrect = "Erro inesperado, tente novamente mais tarde";
     }
 
   }

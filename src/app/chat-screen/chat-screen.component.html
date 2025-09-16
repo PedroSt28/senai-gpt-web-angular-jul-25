@@ -5,14 +5,10 @@
         <div class="top1" >
 
          <div class="top2">
-            <div class="button"><input type="button" value=" + New chat"></div>
+            <div class="but"><input type="button" value=" + New chat"></div>
 
-            <div class="upp"><i class="fa-regular fa-message"></i><input  type="button" value="AI Chat Tool Ethics"></div>
+            <button *ngFor = "let chat of chats" class="upp"><i class="fa-regular fa-message"></i> {{chat.chatTitle}}</button>   
 
-            <div class="upp"> <i class="fa-regular fa-message"></i> <input type="button"  value="Al Chat Tool Impact Writing"></div>
-
-            <div class="upp"> <i class="fa-regular fa-message"></i><input  type="button" value="New chat "></div>  
-            
         </div>
 
          </div>
