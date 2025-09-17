@@ -44,7 +44,6 @@ export class LoginScreenComponent {
     console.log("Email", this.LoginForm.value.email);
     console.log("password", this.LoginForm.value.password);
 
-
     if (this.LoginForm.value.email == "") {
 
       this.emailErrorMensage = "O canmpo de email é obrigatorio";
