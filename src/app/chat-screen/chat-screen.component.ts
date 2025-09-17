@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
@@ -82,7 +82,7 @@ export class ChatScreenComponent { //constroi classes
 
       }
 
-    }))
+    }));
     console.log("MENSAGENS", response);
 
     this.mensagens = response as Imessage[];
@@ -90,3 +90,6 @@ export class ChatScreenComponent { //constroi classes
   }
 
 }
+
+
+
