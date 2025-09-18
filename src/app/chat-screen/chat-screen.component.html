@@ -11,9 +11,9 @@
 
                 <button class="upp" (click)="onChatClick(chat)">
                     <i class="fa-regular fa-message"></i>
-                           {{ chat.chatTitle }}
+                    {{ chat.chatTitle }}
                 </button>
-                
+
                 }
 
             </div>
@@ -22,22 +22,15 @@
 
         <div class="baixo">
 
-            <div class="dawB"> <i class="fa-regular fa-trash-can"></i> <input type="button" value="Clear conversations">
-            </div>
-
+            <div class="dawB"> <i class="fa-regular fa-trash-can"></i> <input type="button" value="Clear conversations"></div>
 
             <div class="dawB"> <i class="fa-regular fa-lightbulb"></i> <input type="button" value="Light mode"></div>
 
-
             <div class="dawB"><i class="fa-regular fa-user"></i> <input type="button" value="My  account"></div>
 
+            <div class="dawB"><i class="fa-regular fa-share-from-square"></i> <input type="button" value="Updates & FAQ"></div>
 
-            <div class="dawB"><i class="fa-regular fa-share-from-square"></i> <input type="button"
-                    value="Updates & FAQ"></div>
-
-
-            <div class="dawB"><i class="fa-solid fa-arrow-right-from-bracket"> </i><input type="button" value="Log out">
-            </div>
+            <div class="dawB"><i class="fa-solid fa-arrow-right-from-bracket"> </i><input type="button" value="Log out"></div>
 
         </div>
 
@@ -45,11 +38,10 @@
 
     <main class="central-panel">
 
+        @if (chatSelecionado == null ){
+
         <div class="logo"><img src="imgs/Chat (1).png" alt="logo"></div>
-
-
         <div class="tree">
-
             <div class="tree-caixa">
 
                 <h1 class="titulo"> <i class="fa-solid fa-comments"></i>Exemples</h1>
@@ -65,11 +57,9 @@
 
             </div>
 
-
-
             <div class="tree-caixa">
-                <h1 class="titulo"><i class="fa-regular fa-snowflake"></i> Capabilities</h1>
 
+                <h1 class="titulo"><i class="fa-regular fa-snowflake"></i> Capabilities</h1>
                 <div class="caixa-in">
                     <h2>Remembers what user saidearlier in the conversation.</h2>
                 </div>
@@ -81,7 +71,6 @@
                 </div>
 
             </div>
-
 
             <div class="tree-caixa">
                 <h1 class="titulo"> <i class="fa-solid fa-shield"></i>Limitations</h1>
@@ -95,10 +84,34 @@
                 <div class="caixa-in">
                     <h2>Limited knowledge of world andevents after 2021.</h2>
                 </div>
+            </div>
+        </div>
+
+        }
+
+        @if (chatSelecionado != null){
+
+        <div class="chat-container">
+
+            <div class="chat-header">
+
+                <h2>{{ chatSelecionado.chatTitle }}</h2>
+
+            </div>
+
+            <div class="chat-messages">
+
+                @for (msg of mensagens; track $index){
+
+                <p class="message-item" [class.chatbot] ="msg.userId == 'chatbot' "> {{ msg.text}}</p>
+
+                }
 
             </div>
 
         </div>
+
+        }
 
         <div class="rodape">
 
@@ -106,7 +119,10 @@
                 <i class="fa-solid fa-microphone"></i>
                 <i class="fa-regular fa-image"></i>
 
-                <input class="escreva" type="text" placeholder=" escreva aqui"><i class="fa-solid fa-paper-plane"></i>
+                <input  class="escreva" [formControl]= "mensagemUsuario" type="text" placeholder=" escreva aqui" >
+
+                <i class="fa-solid fa-paper-plane" (click)="enviarMensagem()"></i>
+
             </div>
 
         </div>
