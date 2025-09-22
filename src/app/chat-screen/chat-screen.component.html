@@ -5,7 +5,7 @@
         <div class="top1">
 
             <div class="top2">
-                <div class="but"><input type="button" value=" + New chat"></div>
+                <div class="but"><input type="button" value=" + New chat" (click)="novoChat()"></div>
 
                 @for (chat of chats; track $index){
 
@@ -22,7 +22,11 @@
 
         <div class="baixo">
 
-            <div class="dawB"> <i class="fa-regular fa-trash-can"></i> <input type="button" value="Clear conversations"></div>
+                        @if(chatSelecionado != null){
+
+                 <div class="dawB"> <i class="fa-regular fa-trash-can"></i> <input type="button" value= {{chatSelecionado.chatTitle}} (click)="deletarcChatSelecionado()"></div>
+
+            }
 
             <div class="dawB"> <i class="fa-regular fa-lightbulb"></i> <input type="button" value="Light mode"></div>
 
@@ -30,7 +34,7 @@
 
             <div class="dawB"><i class="fa-regular fa-share-from-square"></i> <input type="button" value="Updates & FAQ"></div>
 
-            <div class="dawB"><i class="fa-solid fa-arrow-right-from-bracket"> </i><input type="button" value="Log out"></div>
+            <div class="dawB"><i class="fa-solid fa-arrow-right-from-bracket"> </i><input type="button" value="Deslogar" (click)="logOut()"></div>
 
         </div>
 
@@ -111,9 +115,7 @@
 
         </div>
 
-        }
-
-        <div class="rodape">
+         <div class="rodape">
 
             <div class="rod1">
                 <i class="fa-solid fa-microphone"></i>
@@ -126,6 +128,9 @@
             </div>
 
         </div>
+
+        }
+
     </main>
 
 </div>

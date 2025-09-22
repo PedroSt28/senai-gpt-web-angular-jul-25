@@ -56,11 +56,17 @@ export class ChatScreenComponent { //constroi classes
         "Authorization": "Bearer " + localStorage.getItem("meuToken")
       }
 
-    }));
+    })) as IChat[];
 
     if (response) {
 
       console.log("Chats", response);
+
+      let userId = localStorage.getItem("meuId");
+
+      response = response.filter(chat => chat.userId == userId);
+
+
       this.chats = response as [];
 
     } else {
@@ -128,22 +134,22 @@ export class ChatScreenComponent { //constroi classes
         }
       ]
     }, {
-      headers : {
-        "Content-Type" : "application/json",
-        "X-goog-api-key" : "AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
+      headers: {
+        "Content-Type": "application/json",
+        "X-goog-api-key": "AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
       }
 
     })) as any;
 
-    let novaRespostaIA =  {
+    let novaRespostaIA = {
 
-    chatId:this.chatSelecionado.id,
-    userId:"chatbot",
-    text: respostaIAResponse.candidates[0].content.parts[0].text,
+      chatId: this.chatSelecionado.id,
+      userId: "chatbot",
+      text: respostaIAResponse.candidates[0].content.parts[0].text,
 
     }
-// 3-- salva a nova mensagem 
- let novaRespostaIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaRespostaIA, {   //post serve para mandar a mensagem 
+    // 3-- salva a nova mensagem 
+    let novaRespostaIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaRespostaIA, {   //post serve para mandar a mensagem 
       headers: {
 
         "Content-Type": "application/json",
@@ -157,6 +163,88 @@ export class ChatScreenComponent { //constroi classes
     await this.onChatClick(this.chatSelecionado);
 
 
+    //limpa campo de mensagem
+    this.mensagemUsuario.setValue("");
+  }
+
+  async novoChat() {
+    const nomeChat = prompt("Digite o nome do novo chat");
+
+    if (!nomeChat) {
+
+      alert("Nome Invalido");
+      return; //para a execução do metodo
+
+
+    }
+
+    const novoChatObj = {
+
+      chatTitle: nomeChat,
+      userId: localStorage.getItem("meuId"),
+
+    }
+
+    let novoChatResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/chats", novoChatObj, {
+      headers: {
+        "content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("meuToken")
+      }
+
+    })) as IChat;
+
+    //ataliza os chats da tela
+    await this.getChats();
+
+    //abre chat recem criado
+    await this.onChatClick(novoChatResponse);
+
+  }
+
+  async logOut() {
+
+    localStorage.clear();
+    window.location.reload()
+
+  }
+
+  async deletarcChatSelecionado() {
+
+    let confirmation = confirm("Deseja realmente apagar o chat " + this.chatSelecionado.chatTitle + "?")
+
+    if (!confirmation) {
+
+      return
+
+    }
+
+    try {
+
+
+      let deleteResponse = await firstValueFrom(this.http.delete("https://senai-gpt-api.azurewebsites.net/chats/" + this.chatSelecionado.id, {
+        headers: {
+          "content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("meuToken")
+        }
+
+      })) as IChat;
+    } catch (error) {
+
+      console.log("Erro no delete: " + error);
+
+    }
+
+    //atualiza chats no menu lateral
+    await this.getChats();
+
+    //remove o chat clicado limpando da tela 
+    this.chatSelecionado = null!;
+
+    //força a atualização da tela
+    this.cd.detectChanges();
+
+
   }
 
 }
+

@@ -15,6 +15,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       if (err.status == 401) {    //tokens expirado
 
         localStorage.clear();   //Limpa todos os dados do localStorege
+        
         router.navigate(["/login0"]);
 
       }
