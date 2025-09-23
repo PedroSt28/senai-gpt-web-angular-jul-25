@@ -121,7 +121,7 @@
                 <i class="fa-solid fa-microphone"></i>
                 <i class="fa-regular fa-image"></i>
 
-                <input  class="escreva" [formControl]= "mensagemUsuario" type="text" placeholder=" escreva aqui" >
+                <input  class="escreva" [formControl]= "mensagemUsuario" type="text" placeholder=" escreva aqui" (keydown.enter)="enviarMensagem()">
 
                 <i class="fa-solid fa-paper-plane" (click)="enviarMensagem()"></i>
 

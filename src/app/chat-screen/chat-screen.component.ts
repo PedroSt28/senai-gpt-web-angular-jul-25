@@ -66,7 +66,6 @@ export class ChatScreenComponent { //constroi classes
 
       response = response.filter(chat => chat.userId == userId);
 
-
       this.chats = response as [];
 
     } else {
@@ -175,7 +174,6 @@ export class ChatScreenComponent { //constroi classes
       alert("Nome Invalido");
       return; //para a execução do metodo
 
-
     }
 
     const novoChatObj = {
@@ -242,7 +240,6 @@ export class ChatScreenComponent { //constroi classes
 
     //força a atualização da tela
     this.cd.detectChanges();
-
 
   }
 
