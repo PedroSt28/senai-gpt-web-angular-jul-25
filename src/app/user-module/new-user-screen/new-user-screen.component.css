@@ -19,7 +19,7 @@
      height: 100vh;
      width: 50vw;
      background-image: url("/imgs/new-user.jpg");
-    background-size: cover;
+     background-size: cover;
      background-position: 0px, 120px;
 }
 
@@ -33,12 +33,12 @@
      flex-direction: column;
      align-items: center;
      justify-content: center;
-    
+
 }
 
-.login-container a{
-    margin-top: 10px;
-color: black;
+.login-container a {
+     margin-top: 10px;
+     color: black;
 }
 
 /*.classe{ ponto antes para classe
@@ -53,9 +53,9 @@ img{      so digitar o prefixo para a tag
 */
 
 
-.login-container-img {
+.login-container img {
 
-     height: 60px;
+     height: 10%;
 
 }
 
@@ -110,17 +110,47 @@ img{      so digitar o prefixo para a tag
 
 }
 
-.a{
+.a {
 
-display: flex;
-color: aqua;
+     display: flex;
+     color: aqua;
 
 }
 
-.nameError{
+.nameError {
 
-color: rgb(255, 0, 0);
+     color: rgb(255, 0, 0);
      font-size: 12px;
      transform: translateY(-12px) translateX(-90px);
 
+}
+
+
+@media screen and (max-width: 1000px) {
+
+     .robo-image {
+          background-position: center;
+     }
+     
+     .page-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+
+}
+
+@media screen and (max-width: 768px) {
+
+     .page-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto;
+
+     }
+
+     .robo-image{
+          display: none;
+     }
 }

@@ -28,13 +28,25 @@
 
             }
 
-            <div class="dawB"> <i class="fa-regular fa-lightbulb"></i> <input type="button" value="Light mode"></div>
+            <div class="dawB" (click)="ligarDesligarDarkMode()"> 
+                <i class="fa-solid fa-moon"></i> 
+                <input type="button" value="Modo escuro" >
+            </div>
+ 
+            <div class="dawB">
+                <i class="fa-solid fa-user"></i> 
+                <input type="button" value="My  account">
+            </div>
 
-            <div class="dawB"><i class="fa-regular fa-user"></i> <input type="button" value="My  account"></div>
+            <div class="dawB">
+                <i class="fa-solid fa-share-from-square"></i>
+                 <input type="button" value="Updates & FAQ">
+                </div>
 
-            <div class="dawB"><i class="fa-regular fa-share-from-square"></i> <input type="button" value="Updates & FAQ"></div>
-
-            <div class="dawB"><i class="fa-solid fa-arrow-right-from-bracket"> </i><input type="button" value="Deslogar" (click)="logOut()"></div>
+            <div class="dawB">
+                <i class="fa-solid fa-arrow-right-from-bracket"> </i>
+                <input type="button" value="Deslogar" (click)="logOut()">
+            </div>
 
         </div>
 
@@ -44,7 +56,7 @@
 
         @if (chatSelecionado == null ){
 
-        <div class="logo"><img src="imgs/Chat (1).png" alt="logo"></div>
+        <div class="logo"><img [src]="darkMode == true? '/imgs/Chat-Dark.png' : '/imgs/Chat (1).png' " alt="logo"></div>
         <div class="tree">
             <div class="tree-caixa">
 

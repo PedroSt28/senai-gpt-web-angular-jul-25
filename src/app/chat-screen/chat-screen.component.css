@@ -53,7 +53,7 @@
 
   display: flex;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   height: 100%;
   align-items: center;
   border-color: transparent;
@@ -106,7 +106,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #ffffff;
+  background-color: transparent;
   border-top: 3px solid rgba(230, 226, 226, 0.88);
   align-items: center;
 
@@ -118,14 +118,15 @@
   align-items: center;
   margin-left: 20px;
   width: 242px;
+  border: none;
 
 }
 
 .dawB input {
 
-  background-color: #ffffff;
+  background-color: transparent;
   height: 48px;
-  width: 100%;
+  width: 80%;
   display: flex;
   border-radius: 0%;
   border: none;
@@ -150,8 +151,8 @@
 
 .logo {
 
-  height: 140px;
-  width: 140px;
+  height: 130px;
+  width: 150px;
   display: flex;
   justify-content: center;
   margin: 10% 0px 10px 0px;
@@ -266,7 +267,7 @@
   /* Para corrigir o bug que acontece quando há muitas mensagens no chat */
   height: 100%;
   overflow: auto;
-  background-image: url(/imgs/essa-mesma.jpg);
+  /*background-image: url(/imgs/essa-mesma.jpg); fundo imagem*/
   background-size: 100%;
 
 }
@@ -303,6 +304,76 @@
   width: 30vw;
   margin-left: unset;
   color: white;
-  background: #083058;
+  background: #4638c2;
 
+}
+
+::ng-deep body.dark-mode .left-side{
+
+  background-color: rgb(14, 12, 12)!important;
+  color: white;
+  
+}
+
+::ng-deep body.dark-mode .left-side input{
+
+  background-color: rgb(14, 12, 12) !important;
+  color: white;
+  
+}
+
+::ng-deep body.dark-mode .left-side .upp{
+
+  background-color: rgb(14, 12, 12) !important;
+  color: rgb(255, 255, 255);
+  
+}
+
+::ng-deep body.dark-mode .left-side .but input {
+color: rgb(0, 0, 0);
+background-color: rgb(236, 236, 236) !important;
+  
+}
+
+::ng-deep body.dark-mode main.central-panel {
+color: white;
+background-color: rgb(14, 12, 12);
+  
+}
+
+::ng-deep body.dark-mode .tree {
+color: white;
+background-color: rgb(14, 12, 12);
+  
+}
+
+::ng-deep body.dark-mode .titulo {
+color: white;
+background-color:rgb(14, 12, 12);
+  
+}
+
+::ng-deep body.dark-mode .tree-caixa{
+color: white;
+background-color: rgb(14, 12, 12);
+  
+}
+
+::ng-deep body.dark-mode .tree-caixa h2{
+color: white;
+background-color:rgb(14, 12, 12) !important;
+  
+}
+
+
+::ng-deep body.dark-mode .rod1{
+color: white;
+background-color: rgb(51, 50, 50);
+  
+}
+
+::ng-deep body.dark-mode .rod1 input{
+color: white;
+background-color: rgb(51, 50, 50);
+  
 }
